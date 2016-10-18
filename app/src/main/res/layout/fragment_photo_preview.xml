@@ -1,0 +1,39 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.photoshare.PhotoCaptureFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_dark">
+
+        <ImageView
+            android:id="@+id/imgMap"
+            android:contentDescription="@string/preview_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+        <com.traversoft.gdgphotoshare.ui.views.CameraPreviewImageView
+            android:id="@+id/previewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop" />
+
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/share"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+</layout>

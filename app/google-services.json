@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "166181424887",
+    "firebase_url": "https://gdgphotoshare.firebaseio.com",
+    "project_id": "gdgphotoshare",
+    "storage_bucket": "gdgphotoshare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166181424887:android:987901da59e2f46b",
+        "android_client_info": {
+          "package_name": "com.traversoft.gdgphotoshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166181424887-e59lihiejreeec76ckrf826p0he44uis.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.traversoft.gdgphotoshare",
+            "certificate_hash": "C203DD19D5858D73E1C1112A8A8791685CEA9DA4"
+          }
+        },
+        {
+          "client_id": "166181424887-susrr8a15itnngkhq5q0sqm720u7i5ed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7UDobN63II-kE4lCimaI8S2nopZCPUps"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166181424887-susrr8a15itnngkhq5q0sqm720u7i5ed.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">DevFest Florida</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="toggle_camera">Toggle cameras</string>
+    <string name="toggle_flash">Toggle flash</string>
+    <string name="take_photo">Take photo</string>
+    <string name="tap_album">View Album</string>
+    <string name="preview_image">Preview image</string>
+    <string name="overlay">Overlay</string>
+    <string name="share">Share</string>
+
+    <string name="gdg_devfest_florida_2016">GDG DevFest Florida 2016</string>
+    <string name="organizers_devfestflorida_org">organizers@devfestflorida.org</string>
+    <string name="hashtag">#DevFestFL #DevFest2016</string>
+    <string name="snap_a_photo">Snap a Photo</string>
+    <string name="view_schedule">View Schedule</string>
+    <string name="speakers">Speakers</string>
+</resources>
