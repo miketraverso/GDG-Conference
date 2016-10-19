@@ -1,18 +1,12 @@
 package com.traversoft.gdgphotoshare.data;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-
-/**
- * Clutch for Android
- * Copyright © 2016 HFA. All rights reserved.
- */
 
 @AllArgsConstructor
 public class Speaker {

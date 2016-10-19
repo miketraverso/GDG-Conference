@@ -22,11 +22,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-/**
- * Clutch for Android
- * Copyright © 2016 HFA. All rights reserved.
- */
-
 
 public class SpeakerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;

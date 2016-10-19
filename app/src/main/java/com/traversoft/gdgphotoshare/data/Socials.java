@@ -6,11 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-/**
- * Clutch for Android
- * Copyright © 2016 HFA. All rights reserved.
- */
-
 @AllArgsConstructor
 public class Socials {
     @Getter @Setter private String icon;
