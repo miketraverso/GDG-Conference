@@ -186,7 +186,7 @@ public class PhotoPreviewFragment
             overlay = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
 
             canvas.drawBitmap(und, 0, 0, null);
-            canvas.drawBitmap(overlay, bmp.getWidth() - overlay.getWidth() - 16, bmp.getHeight() - overlay.getHeight(), null);
+            canvas.drawBitmap(overlay, bmp.getWidth() - overlay.getWidth() - 20, bmp.getHeight() - overlay.getHeight() - 20, null);
 
             viewHolder.previewImage.setImageBitmap(bmp);
             overlay.recycle();
