@@ -32,6 +32,7 @@ import com.traversoft.gdgphotoshare.ui.activities.GDGActivity;
 import com.traversoft.gdgphotoshare.ui.fragments.photoshare.PhotoCaptureFragment;
 import com.traversoft.gdgphotoshare.ui.fragments.photoshare.PhotoPreviewFragment;
 import com.traversoft.gdgphotoshare.ui.fragments.schedule.ScheduleFragment;
+import com.traversoft.gdgphotoshare.ui.fragments.speaker.SpeakerFragment;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
@@ -73,6 +74,7 @@ public class MainActivity
         fab.setOnClickListener(view ->
             switchToFragment(R.id.content_main, new PhotoCaptureFragment(), "PhotoCaptureFragment")
         );
+        super.setFab(fab);
 
         setupDrawer();
 
@@ -127,7 +129,7 @@ public class MainActivity
         } else if (id == R.id.nav_schedule) {
             switchToFragment(R.id.content_main, new ScheduleFragment(), "ScheduleFragment");
         } else if (id == R.id.nav_speakers) {
-            switchToFragment(R.id.content_main, new PhotoCaptureFragment(), "PhotoCaptureFragment");
+            switchToFragment(R.id.content_main, new SpeakerFragment(), "SpeakerFragment");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

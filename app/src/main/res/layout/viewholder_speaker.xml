@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.speaker.SpeakerFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="@dimen/margin_16"
+            app:civ_border_color="#FFF"
+            app:civ_border_width="2dp"/>
+
+        <com.traversoft.gdgphotoshare.ui.common.GDGTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_toEndOf="@id/profile_image"
+            android:textSize="22sp"
+            app:gdgFont="ProductSans-Normal"
+            tools:text="Michael Traverso"/>
+
+        <com.traversoft.gdgphotoshare.ui.common.GDGTextView
+            android:id="@+id/company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_marginBottom="@dimen/margin_4"
+            android:layout_toEndOf="@id/profile_image"
+            android:textSize="17sp"
+            app:gdgFont="ProductSans-Normal"
+            tools:text="Traversoft"/>
+
+        <com.traversoft.gdgphotoshare.ui.common.GDGTextView
+            android:id="@+id/country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/company"
+            android:layout_toEndOf="@id/profile_image"
+            android:textSize="17sp"
+            app:gdgFont="ProductSans-Normal"
+            tools:text="Moon base, Moon"/>
+    </RelativeLayout>
+
+</layout>

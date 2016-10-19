@@ -2,32 +2,35 @@ package com.traversoft.gdgphotoshare.ui.common;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
 import com.traversoft.gdgphotoshare.R;
 
 import butterknife.ButterKnife;
 
-public class GDGButton
-        extends AppCompatButton {
+
+public class GDGTextView
+        extends AppCompatTextView {
 
     private String font;
     private Context context;
 
-    public GDGButton(Context context) {
+    public GDGTextView(Context context) {
         super(context);
         this.context = context;
     }
 
-    public GDGButton(Context context, AttributeSet attrs) {
+    public GDGTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         setCustomFont(attrs);
         initializeWidget();
     }
 
-    public GDGButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public GDGTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
         setCustomFont(attrs);

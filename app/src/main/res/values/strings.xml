@@ -22,4 +22,6 @@
     <string name="snap_a_photo">Snap a Photo</string>
     <string name="view_schedule">View Schedule</string>
     <string name="speakers">Speakers</string>
+    <string name="speaker_url">https://devfestflorida.org</string>
+    <string name="loading">Loading...</string>
 </resources>

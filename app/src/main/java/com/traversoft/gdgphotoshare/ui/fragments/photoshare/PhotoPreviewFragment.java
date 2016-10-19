@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.traversoft.gdgphotoshare.MainActivity;
 import com.traversoft.gdgphotoshare.R;
 import com.traversoft.gdgphotoshare.databinding.FragmentPhotoPreviewBinding;
@@ -45,7 +46,7 @@ public class PhotoPreviewFragment
     public static final String FROM_GALLERY = "from_gallery";
 
     private Uri mUriToImage;
-    private Bitmap mOriginalBitmap, mBitmap;
+    private Bitmap mBitmap;
     private Bitmap bitmap = null, bmp = null, overlay = null, und = null;
     private FragmentPhotoPreviewBinding viewHolder;
 
@@ -81,6 +82,7 @@ public class PhotoPreviewFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewHolder = FragmentPhotoPreviewBinding.inflate(inflater, container, false);
+        getGdgActivity().setFabVisibility(false);
         setupUI();
         return viewHolder.getRoot();
     }
@@ -136,16 +138,15 @@ public class PhotoPreviewFragment
         }
 
         mBitmap = Bitmap.createBitmap(oldBitmap, 0, 0, oldBitmap.getWidth(), oldBitmap.getHeight(), matrix, false);
-        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.overlay);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.overlay_color);
 
         int width = Math.round(mBitmap.getWidth() * Math.min(getResources().getDisplayMetrics().density, 2.0f));
         int height = Math.round(mBitmap.getHeight() * Math.min(getResources().getDisplayMetrics().density, 2.0f));
 
-        bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888); // the bitmap you paint to
+        bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         overlay = Bitmap.createScaledBitmap(bitmap , width, width/3, true);
         und = Bitmap.createScaledBitmap(mBitmap, width, height, true);
         und.setDensity(overlay.getDensity());
-        mOriginalBitmap = bmp.copy(Bitmap.Config.ARGB_8888, false);
 
         viewHolder.previewImage.setImageBitmap(bmp);
         viewHolder.btnShare.setOnClickListener(v -> {
@@ -174,25 +175,24 @@ public class PhotoPreviewFragment
     public void addBottomOverlay() {
 
         try {
-            bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.overlay);
             int width = Math.round(mBitmap.getWidth() * getResources().getDisplayMetrics().density);
             int height = Math.round(mBitmap.getHeight() * Math.min(getResources().getDisplayMetrics().density, 2.0f));
             bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(bmp);
-
-            overlay = Bitmap.createScaledBitmap(bitmap, width, width / 3, true);
             und = Bitmap.createScaledBitmap(mBitmap, width, height, true);
             und.setDensity(overlay.getDensity());
 
+            bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.overlay_color);
+            overlay = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
+
             canvas.drawBitmap(und, 0, 0, null);
-            canvas.drawBitmap(overlay, 0, bmp.getHeight() - overlay.getHeight(), null);
+            canvas.drawBitmap(overlay, bmp.getWidth() - overlay.getWidth() - 16, bmp.getHeight() - overlay.getHeight(), null);
 
             viewHolder.previewImage.setImageBitmap(bmp);
             overlay.recycle();
         }
         catch (OutOfMemoryError error) {
-
-            error.printStackTrace();
+            Crashlytics.logException(error);
         }
     }
 
@@ -218,16 +218,6 @@ public class PhotoPreviewFragment
 //
 //        return b;
 //    }
-
-    public void removeOverlay() {
-
-        viewHolder.previewImage.setImageBitmap(mOriginalBitmap);
-        bitmap.recycle();
-        overlay.recycle();
-        und.recycle();
-        bmp.recycle();
-    }
-
 
     @Override
     public void onDetach() {

@@ -86,6 +86,7 @@ public class PhotoCaptureFragment
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewHolder = FragmentPhotoCaptureBinding.inflate(inflater, container, false);
+        getGdgActivity().setFabVisibility(false);
         return viewHolder.getRoot();
     }
 

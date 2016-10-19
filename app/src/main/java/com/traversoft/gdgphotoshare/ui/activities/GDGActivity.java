@@ -12,6 +12,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -23,18 +24,15 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.traversoft.gdgphotoshare.GDGMeetupApplication;
-import com.traversoft.gdgphotoshare.MainActivity;
 import com.traversoft.gdgphotoshare.R;
 import com.traversoft.gdgphotoshare.data.BroadcastableAction;
+import com.traversoft.gdgphotoshare.ui.common.GDGTextView;
 import com.traversoft.gdgphotoshare.ui.fragments.GDGBaseFragment;
 
-import butterknife.BindDrawable;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,9 +43,11 @@ public class GDGActivity extends AppCompatActivity
 
     @Getter private Toolbar toolbar;
     @Getter @Setter private Unbinder unbinder;
+    @Getter @Setter private FloatingActionButton fab;
+
     private static final int GDG_PERMISSIONS_REQUEST_CAMERA = 1000;
     private static final int GDG_PERMISSIONS_REQUEST_WRITE = 1001;
-    private static final int GDG_REQUEST_PERMISSISIONS = 1000;
+    private static final int GDG_REQUEST_PERMISSIONS = 1000;
 
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,9 +99,15 @@ public class GDGActivity extends AppCompatActivity
         }
     }
 
+    public void setFabVisibility(boolean visibility) {
+        if (fab != null) {
+            fab.setVisibility(visibility ? View.VISIBLE : View.GONE);
+        }
+    }
+
     public void setToolbarText(@StringRes int stringResourceId, @DimenRes int dimenResourceId, @ColorRes int colorRes) {
         if (getSupportActionBar() != null) {
-            TextView title = new TextView(this);
+            GDGTextView title = new GDGTextView(this);
             title.setText(getResources().getString(stringResourceId));
             title.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(dimenResourceId));
             title.setTextColor(getResources().getColor(colorRes));
@@ -132,14 +138,14 @@ public class GDGActivity extends AppCompatActivity
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                 dialog.setPositiveButton("YES", (dialog1, which) -> {
-                    ActivityCompat.requestPermissions(this, permissions, GDG_REQUEST_PERMISSISIONS);
+                    ActivityCompat.requestPermissions(this, permissions, GDG_REQUEST_PERMISSIONS);
                 });
                 dialog.setNegativeButton("NO", null);
                 dialog.setMessage(rationaleMessage);
                 dialog.setTitle("Please may we");
 
             } else {
-                ActivityCompat.requestPermissions(this, permissions, GDG_REQUEST_PERMISSISIONS);
+                ActivityCompat.requestPermissions(this, permissions, GDG_REQUEST_PERMISSIONS);
             }
         } else {
             if (Manifest.permission.WRITE_EXTERNAL_STORAGE.equalsIgnoreCase(permission)) {

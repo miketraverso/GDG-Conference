@@ -1,0 +1,69 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.speaker.SpeakerDetailFragment">
+
+        <ScrollView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    app:civ_border_color="#FFF"
+                    app:civ_border_width="2dp"/>
+
+                <com.traversoft.gdgphotoshare.ui.common.GDGTextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:textSize="@dimen/text_22"
+                    app:gdgFont="ProductSans-Bold"
+                    tools:text="Michael Traverso"/>
+
+                <com.traversoft.gdgphotoshare.ui.common.GDGTextView
+                    android:id="@+id/company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name"
+                    android:layout_marginBottom="@dimen/margin_4"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:textSize="@dimen/text_17"
+                    app:gdgFont="ProductSans-Normal"
+                    tools:text="Traversoft"/>
+
+                <com.traversoft.gdgphotoshare.ui.common.GDGTextView
+                    android:id="@+id/country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/company"
+                    android:layout_marginBottom="@dimen/margin_32"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:textSize="@dimen/text_17"
+                    app:gdgFont="ProductSans-Normal"
+                    tools:text="Moon base, Moon"/>
+
+                <com.traversoft.gdgphotoshare.ui.common.GDGTextView
+                    android:id="@+id/bio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/country"
+                    android:textSize="@dimen/text_16"
+                    app:gdgFont="ProductSans-Normal"
+                    tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."/>
+            </RelativeLayout>
+        </ScrollView>
+
+</layout>
